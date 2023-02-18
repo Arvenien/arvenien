@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arvenien</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section id="main">
+		<h1 id="header"></h1>
+		<script>
+			var i = 0;
+			var text = "Arvenien.";
+			var speed = 40;
+
+			var latestIndex = -1;
+			function typeEffect() {
+				var a = Math.max(0, 1 - i/text.length);
+				var newIndex = Math.floor(i/2);
+
+				document.getElementById("main").style.backgroundColor = "rgba(" + [17, 17, 17, a].join(',') + ")";
+
+				if (newIndex !== latestIndex) {
+					document.getElementById("header").innerHTML += text.charAt(newIndex);
+					latestIndex = newIndex;
+				}
+
+				i++;
+				setTimeout(typeEffect, speed);
+			}
+
+			(new Image()).src = "morgoth.jpeg";
+
+			typeEffect();
+		</script>
+	</section>
+</body>
+</html>
